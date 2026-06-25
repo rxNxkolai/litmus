@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: test (node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+      # The example suite must pass on the offline mock provider...
+      - run: node dist/cli.js run examples/sentiment.suite.mjs --no-color
+      # ...and the mixed demo suite renders a report (non-gating; it fails on purpose).
+      - name: Demo report
+        run: node dist/cli.js run examples/ --no-color --html report.html || echo "demo had expected failures"

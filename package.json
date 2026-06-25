@@ -1,0 +1,73 @@
+{
+  "name": "promptproof",
+  "version": "0.1.0",
+  "description": "Unit tests for your LLM prompts. Define behavioral test suites with rich assertions, run them offline against a deterministic mock model or real providers, and get an interactive HTML report with run-over-run regression detection. Zero runtime dependencies.",
+  "keywords": [
+    "prompt",
+    "llm",
+    "testing",
+    "eval",
+    "evaluation",
+    "assertions",
+    "regression",
+    "ai",
+    "agent",
+    "openai",
+    "anthropic",
+    "cli",
+    "devtools",
+    "prompt-engineering",
+    "html-report"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "promptproof": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepare": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "selfcheck": "node dist/cli.js run examples/sentiment.suite.mjs --provider mock",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "author": "Nikolai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rxNxkolai/promptproof.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rxNxkolai/promptproof/issues"
+  },
+  "homepage": "https://github.com/rxNxkolai/promptproof#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

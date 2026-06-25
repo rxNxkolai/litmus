@@ -1,0 +1,20 @@
+node_modules/
+dist/
+coverage/
+*.log
+npm-debug.log*
+.DS_Store
+.env
+.env.*
+*.tsbuildinfo
+.vitest/
+
+# promptproof run history + generated reports written during local testing
+.promptproof/
+report.html
+/promptproof-report.png
+
+# Editor/agent tooling caches
+.impeccable/
+.claude/
+.codex/
