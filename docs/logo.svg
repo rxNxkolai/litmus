@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 132" width="520" height="132" fill="none" role="img" aria-label="promptproof">
-  <title>promptproof</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 132" width="520" height="132" fill="none" role="img" aria-label="litmus">
+  <title>litmus</title>
   <defs>
     <radialGradient id="glow" cx="20%" cy="34%" r="58%">
       <stop offset="0%" stop-color="#3fb950" stop-opacity="0.16" />
@@ -24,6 +24,6 @@
     </g>
   </g>
   <!-- wordmark -->
-  <text x="150" y="66" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.4" fill="#e8edf5">promptproof</text>
+  <text x="150" y="66" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.4" fill="#e8edf5">litmus</text>
   <text x="152" y="93" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" letter-spacing="0.2" fill="#9aa4b2">unit tests for your LLM prompts</text>
 </svg>

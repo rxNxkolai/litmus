@@ -69,7 +69,7 @@ describe('renderHtml', () => {
   it('produces a self-contained document with summary', () => {
     const html = renderHtml(makeRun());
     expect(html.startsWith('<!doctype html>')).toBe(true);
-    expect(html).toContain('promptproof');
+    expect(html).toContain('litmus');
     expect(html).toContain('demo');
     expect(html).toContain('50%');
   });

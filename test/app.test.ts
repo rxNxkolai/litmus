@@ -43,7 +43,7 @@ describe('cli run()', () => {
   it('prints help by default and exits 0', async () => {
     const c = capture();
     expect(await run([], c.io)).toBe(0);
-    expect(c.out.join('\n')).toContain('promptproof');
+    expect(c.out.join('\n')).toContain('litmus');
   });
 
   it('prints a semver version', async () => {

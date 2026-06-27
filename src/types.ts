@@ -1,5 +1,5 @@
 /**
- * Core data model for promptproof.
+ * Core data model for litmus.
  *
  * A {@link Suite} is authored by the user (in JSON or JS). The {@link runSuite}
  * runner renders each case's prompt, calls a {@link Provider}, evaluates the

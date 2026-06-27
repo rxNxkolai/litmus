@@ -3,7 +3,7 @@ import { extname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import type { Suite } from './types.js';
 
-const SUITE_RE = /\.(suite|promptproof)\.(json|mjs|js)$/;
+const SUITE_RE = /\.(suite|litmus)\.(json|mjs|js)$/;
 
 /**
  * Load a suite from `.json` (parsed) or `.js`/`.mjs` (dynamically imported,

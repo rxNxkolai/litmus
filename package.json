@@ -1,5 +1,5 @@
 {
-  "name": "promptproof",
+  "name": "litmus",
   "version": "0.1.0",
   "description": "Unit tests for your LLM prompts. Define behavioral test suites with rich assertions, run them offline against a deterministic mock model or real providers, and get an interactive HTML report with run-over-run regression detection. Zero runtime dependencies.",
   "keywords": [
@@ -29,7 +29,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "promptproof": "./dist/cli.js"
+    "litmus": "./dist/cli.js"
   },
   "files": [
     "dist",
@@ -56,12 +56,12 @@
   "author": "Nikolai",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rxNxkolai/promptproof.git"
+    "url": "git+https://github.com/rxNxkolai/litmus.git"
   },
   "bugs": {
-    "url": "https://github.com/rxNxkolai/promptproof/issues"
+    "url": "https://github.com/rxNxkolai/litmus/issues"
   },
-  "homepage": "https://github.com/rxNxkolai/promptproof#readme",
+  "homepage": "https://github.com/rxNxkolai/litmus#readme",
   "devDependencies": {
     "@types/node": "^22.10.0",
     "@vitest/coverage-v8": "^2.1.8",

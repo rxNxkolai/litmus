@@ -18,10 +18,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Approximate token and USD cost accounting.
 - CLI commands `run`, `report`, `list`, `init` with pretty/JSON output and exit
   codes suitable for CI gating.
-- Run history persisted to `.promptproof/runs/` with run-over-run regression and
+- Run history persisted to `.litmus/runs/` with run-over-run regression and
   fix detection.
 - Interactive, self-contained HTML report.
 - Programmatic API: `runSuite`, `loadSuite`, `renderHtml`, and more.
 - Zero runtime dependencies.
 
-[0.1.0]: https://github.com/rxNxkolai/promptproof/releases/tag/v0.1.0
+[0.1.0]: https://github.com/rxNxkolai/litmus/releases/tag/v0.1.0

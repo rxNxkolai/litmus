@@ -35,10 +35,10 @@ interface ParsedArgs {
   errors: string[];
 }
 
-const HELP = `promptproof v${VERSION}
+const HELP = `litmus v${VERSION}
 Unit tests for your LLM prompts. Runs offline against a deterministic mock model.
 
-Usage: promptproof <command> [options]
+Usage: litmus <command> [options]
 
 Commands:
   run <files-or-dirs...>   Run suites and report pass/fail
@@ -52,15 +52,15 @@ Options:
       --html <path>        Write an interactive HTML report to <path>
       --input <runfile>    (report) Render a specific saved run file
       --json               Emit machine-readable JSON instead of text
-      --no-save            Do not persist this run to .promptproof/runs
+      --no-save            Do not persist this run to .litmus/runs
       --no-color           Disable colored output
   -v, --version            Print version
   -h, --help               Print this help
 
 Examples:
-  promptproof run examples/ --html report.html
-  promptproof run suites/ --provider openai --model gpt-4o-mini
-  promptproof list
+  litmus run examples/ --html report.html
+  litmus run suites/ --provider openai --model gpt-4o-mini
+  litmus list
 
 Exit codes: 0 = all passed, 1 = failures, 2 = bad usage.`;
 
@@ -211,10 +211,10 @@ function cmdReport(opts: ParsedArgs, io: RunIO): number {
     if (run && prior) diff = diffRuns(prior, run);
   }
   if (!run) {
-    io.err('No runs found. Run `promptproof run <suite>` first.');
+    io.err('No runs found. Run `litmus run <suite>` first.');
     return 2;
   }
-  const out = opts.html ?? 'promptproof-report.html';
+  const out = opts.html ?? 'litmus-report.html';
   writeFileSync(out, renderHtml(run, diff), 'utf8');
   io.out(`HTML report written to ${out}`);
   return 0;
@@ -223,7 +223,7 @@ function cmdReport(opts: ParsedArgs, io: RunIO): number {
 function cmdList(io: RunIO): number {
   const runs = listRuns();
   if (runs.length === 0) {
-    io.out('No runs yet. Run `promptproof run <suite>` to create one.');
+    io.out('No runs yet. Run `litmus run <suite>` to create one.');
     return 0;
   }
   for (const run of runs) {
@@ -234,7 +234,7 @@ function cmdList(io: RunIO): number {
   return 0;
 }
 
-const STARTER_SUITE = `// promptproof suite. Run: promptproof run example.suite.mjs
+const STARTER_SUITE = `// litmus suite. Run: litmus run example.suite.mjs
 export default {
   name: 'example',
   description: 'A starter suite using the offline mock provider.',
@@ -265,7 +265,7 @@ function cmdInit(io: RunIO): number {
     return 1;
   }
   writeFileSync(target, STARTER_SUITE, 'utf8');
-  io.out(`Created ${target}. Run it with: promptproof run ${target}`);
+  io.out(`Created ${target}. Run it with: litmus run ${target}`);
   return 0;
 }
 
@@ -297,7 +297,7 @@ export async function run(argv: string[], io: RunIO = defaultIO): Promise<number
       return cmdInit(io);
     default:
       io.err(`Unknown command: ${opts.command}`);
-      io.err('Run `promptproof --help` for usage.');
+      io.err('Run `litmus --help` for usage.');
       return 2;
   }
 }

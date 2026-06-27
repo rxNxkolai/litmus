@@ -1,30 +1,30 @@
 <div align="center">
 
-<img src="docs/logo.svg" alt="promptproof" width="520" />
+<img src="docs/logo.svg" alt="litmus" width="520" />
 
 ### Unit tests for your LLM prompts.
 
 Define behavioral test suites with rich assertions, run them against a deterministic offline mock model (no API keys) or real providers, and get an interactive HTML report plus run-over-run regression detection.
 
-[![CI](https://github.com/rxNxkolai/promptproof/actions/workflows/ci.yml/badge.svg)](https://github.com/rxNxkolai/promptproof/actions/workflows/ci.yml)
+[![CI](https://github.com/rxNxkolai/litmus/actions/workflows/ci.yml/badge.svg)](https://github.com/rxNxkolai/litmus/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Runtime dependencies: 0](https://img.shields.io/badge/runtime%20dependencies-0-brightgreen.svg)](package.json)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 
-<img src="docs/demo.svg" alt="promptproof running a suite" width="760" />
+<img src="docs/demo.svg" alt="litmus running a suite" width="760" />
 
 </div>
 
 ## The problem
 
-You change one line of a system prompt and ship it. Three things you did not expect now break: the model stops returning valid JSON, a classification flips, responses balloon past your token budget. Nothing told you, because prompts have no tests. promptproof is that missing layer, and it runs offline and free by default.
+You change one line of a system prompt and ship it. Three things you did not expect now break: the model stops returning valid JSON, a classification flips, responses balloon past your token budget. Nothing told you, because prompts have no tests. litmus is that missing layer, and it runs offline and free by default.
 
 ## The report
 
 Every run produces an interactive, self-contained HTML report: pass/fail per case, the assertions, and the exact prompt and response.
 
 <div align="center">
-<img src="docs/report.png" alt="promptproof HTML report" width="820" />
+<img src="docs/report.png" alt="litmus HTML report" width="820" />
 </div>
 
 ## Quick start
@@ -48,7 +48,7 @@ export default {
 ```
 
 ```bash
-promptproof run sentiment.suite.mjs --html report.html
+litmus run sentiment.suite.mjs --html report.html
 ```
 
 ## Assertions
@@ -75,15 +75,15 @@ promptproof run sentiment.suite.mjs --html report.html
 
 ## Regression detection
 
-Every run is saved to `.promptproof/runs/`. The next run is compared against the previous one, and any case that flipped from pass to fail is surfaced in the terminal and as a banner in the HTML report.
+Every run is saved to `.litmus/runs/`. The next run is compared against the previous one, and any case that flipped from pass to fail is surfaced in the terminal and as a banner in the HTML report.
 
 ## CLI
 
 ```bash
-promptproof run <files-or-dirs...>   # run suites, report, save the run
-promptproof report                   # re-render the latest run as HTML
-promptproof list                     # list saved runs
-promptproof init                     # write a starter suite
+litmus run <files-or-dirs...>   # run suites, report, save the run
+litmus report                   # re-render the latest run as HTML
+litmus list                     # list saved runs
+litmus init                     # write a starter suite
 ```
 
 Exit codes: `0` all passed, `1` failures, `2` bad usage. A drop-in CI gate for your prompts.
@@ -93,15 +93,15 @@ Exit codes: `0` all passed, `1` failures, `2` bad usage. A drop-in CI gate for y
 Not yet on npm. Run it from GitHub:
 
 ```bash
-npx github:rxNxkolai/promptproof init
-npx github:rxNxkolai/promptproof run example.suite.mjs
+npx github:rxNxkolai/litmus init
+npx github:rxNxkolai/litmus run example.suite.mjs
 ```
 
 Or clone and build:
 
 ```bash
-git clone https://github.com/rxNxkolai/promptproof.git
-cd promptproof
+git clone https://github.com/rxNxkolai/litmus.git
+cd litmus
 npm install        # builds automatically via the prepare script
 node dist/cli.js run examples/ --html report.html
 ```
@@ -109,7 +109,7 @@ node dist/cli.js run examples/ --html report.html
 ## Programmatic API
 
 ```ts
-import { runSuite, getProvider } from 'promptproof';
+import { runSuite, getProvider } from 'litmus';
 
 const result = await runSuite(mySuite, { provider: getProvider('mock'), model: 'mock:sentiment' });
 console.log(result.passed, '/', result.total);

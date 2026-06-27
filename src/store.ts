@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Delta, Diff, Run } from './types.js';
 
-const RUNS_SUBDIR = join('.promptproof', 'runs');
+const RUNS_SUBDIR = join('.litmus', 'runs');
 
 /** Absolute path to the run-history directory under `cwd`. */
 export function runDir(cwd: string = process.cwd()): string {

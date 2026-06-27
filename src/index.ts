@@ -1,8 +1,8 @@
 /**
- * promptproof — unit tests for your LLM prompts.
+ * litmus — unit tests for your LLM prompts.
  *
  * Public API:
- *   import { runSuite, loadSuite, renderHtml } from 'promptproof';
+ *   import { runSuite, loadSuite, renderHtml } from 'litmus';
  */
 
 export { runSuite } from './runner.js';
@@ -40,5 +40,5 @@ export type {
   Diff,
 } from './types.js';
 
-/** Current promptproof version. */
+/** Current litmus version. */
 export const version = '0.1.0';

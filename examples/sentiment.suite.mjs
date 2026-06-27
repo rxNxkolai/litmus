@@ -1,5 +1,5 @@
-// Example promptproof suite. Run it offline with:
-//   promptproof run examples/sentiment.suite.mjs
+// Example litmus suite. Run it offline with:
+//   litmus run examples/sentiment.suite.mjs
 //
 // It uses the deterministic `mock:sentiment` provider, so it needs no API keys.
 export default {
